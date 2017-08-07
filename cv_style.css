@@ -1,0 +1,67 @@
+div#container	{
+	position: relative;
+//	border: 1px solid black;
+}
+
+h2	{
+	text-align:center;
+	text-transform:uppercase;
+	color:#22BDDF;
+}
+div#personal	{
+	float:center;
+	//border:1px solid black;
+	text-align:left;
+}
+
+div#details	{
+	position:relative;
+	top:3%;
+}
+
+label	{
+	display:inline-block;
+}
+p	{
+	text-indent:40px;
+}
+
+img	{
+	position:absolute;
+	height:180px;
+	width:200px;
+	top:-6%;
+	left:85%;
+}
+
+table#education	{
+	border:1px solid black;
+	margin:auto;
+	padding:10px;
+	border-collapse:collapse;
+}
+
+table, th, td	{
+	border:1px solid black;
+}
+
+th	{
+	padding:10px;
+	background-color:#22BDDF;
+}
+
+td	{
+	padding:10px;
+	font-weight:bold;
+	}
+	
+li.desc	{
+	text-indent:40px;
+	list-style-type:none;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+fieldset	{
+	border-color:#22BDDF;
+}
