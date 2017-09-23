@@ -1,0 +1,158 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style>
+			.dropdown	{
+				display:block;
+				margin:100px auto;
+				width:100px;
+			}
+		</style>
+		<script>
+			function showEvents(button)	{
+					var weekdays = document.getElementsByName("week");
+					console.log("Weekdays list:"+weekdays);
+					var weekdays_arr = Array.prototype.slice.call(weekdays);
+					console.log("Weekdays array:"+weekdays_arr);
+					var users = [{'Mon':'Meeting with Jack','Tue':'Dinner with Dave','Wed':'Movie night','Thu':'Presentation','Fri':'Party','Sat':'','Sun':''},
+									{'Mon':'Lunch at the plaza','Tue':'Dinner with Maisie','Wed':'See the doctor','Thu':'Opera','Fri':'Movie','Sat':'','Sun':''},
+									{'Mon':'','Tue':'Dinner of board of directors','Wed':'Movie night','Thu':'Presentation','Fri':'','Sat':'','Sun':''},
+									{'Mon':'Dinner with Jenny','Tue':'Presentation','Wed':'Movie night','Thu':'','Fri':'Opera','Sat':'','Sun':''},
+									{'Mon':'','Tue':'Movie','Wed':'Opera','Thu':'Presentation','Fri':'Dinner with Omar','Sat':'','Sun':'Shopping'}
+					
+					];
+					var days=Object.keys(users[0]);
+					var ctr=0;
+					console.log(button.innerHTML);
+					switch(button.innerHTML)	{
+						case 'John Doe':
+										console.log("John Doe selected");
+										weekdays_arr.map(
+														function(weekdays_node)	{
+															console.log(weekdays_node);
+															weekdays_node.innerHTML=users[0][days[ctr++]];
+															
+										});
+										break;
+						case 'Jack Dawes':
+										console.log("John Doe selected");
+										weekdays_arr.map(
+														function(weekdays_node)	{
+															console.log(weekdays_node);
+															weekdays_node.innerHTML=users[1][days[ctr++]];
+															
+										});
+										break;
+						case 'Samin Batra':
+										console.log("John Doe selected");
+										weekdays_arr.map(
+														function(weekdays_node)	{
+															console.log(weekdays_node);
+															weekdays_node.innerHTML=users[2][days[ctr++]];
+															
+										});
+										break;
+						case 'Salvo':
+									console.log("John Doe selected");
+										weekdays_arr.map(
+														function(weekdays_node)	{
+															console.log(weekdays_node);
+															weekdays_node.innerHTML=users[3][days[ctr++]];
+															
+										});
+									break;
+						case 'Lewis':
+									console.log("John Doe selected");
+										weekdays_arr.map(
+														function(weekdays_node)	{
+															console.log(weekdays_node);
+															weekdays_node.innerHTML=users[4][days[ctr++]];
+															
+										});
+									break;
+					}
+			}
+		</script>
+		<style>
+			div.col-md-1	{
+				border:1px solid black;
+				height:100px;
+				width:100px;
+				text-align:center;
+			}
+			
+			.header div	{
+				height:60px;
+			}
+			.row	{
+				display:block;
+				left:110px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="dropdown">
+				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" onclick="showEvents(this)">Users
+				<span class="caret"></span></button>
+				<ul class="dropdown-menu ">
+					<li><a  onclick="showEvents(this)">John Doe</a></li>
+					<li><a  onclick="showEvents(this)">Jack Dawes</a></li>
+					<li><a  onclick="showEvents(this)">Samin Batra</a></li>
+					<li><a  onclick="showEvents(this)">Salvo</a></li>
+					<li><a  onclick="showEvents(this)">Lewis</a></li>
+				</ul>
+			</div>
+			<div class="row header">
+				<div class="col-md-1">
+					Mon
+				</div>
+				<div class="col-md-1">
+					Tue
+				</div>
+				<div class="col-md-1">
+					Wed
+				</div>
+				<div class="col-md-1">
+					Thu
+				</div>
+				<div class="col-md-1">
+					Fri
+				</div>
+				<div class="col-md-1">
+					Sat
+				</div>
+				<div class="col-md-1">
+					Sun
+				</div>
+			</div>
+			<div class="row">
+				<div name="week" class="col-md-1">
+					
+				</div>
+				<div name="week" class="col-md-1">
+					
+				</div>
+				<div name="week" class="col-md-1">
+					
+				</div>
+				<div name="week" class="col-md-1">
+					
+				</div>
+				<div name="week" class="col-md-1">
+					
+				</div>
+				<div name="week" class="col-md-1">
+					
+				</div>
+				<div name="week" class="col-md-1">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
