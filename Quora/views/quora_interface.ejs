@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Quora</title>
+		<link type="text/css" rel="stylesheet" href="quora_design.css"/>
+		<link type="text/css" rel="stylesheet" href="quora_nav.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			function addTopic(obj)	{
+				
+				console.log(obj.innerHTML);
+				var feed=document.getElementById("feed-filter");
+				feed=feed.parentNode;
+				console.log(feed);
+				var topics = feed.children;
+				for(var i=0;i<topics.length;i++)	{
+					console.log(topics[i].innerHTML);
+					if(obj.innerHTML==topics[i].innerHTML)	{
+						return;
+					}
+				}
+				var a=document.createElement("a");
+				var txt=document.createTextNode(obj.innerHTML);
+				a.appendChild(txt);
+				a.setAttribute("href","/home/"+obj.innerHTML);
+				feed.appendChild(a);
+				$.post('/home/add_topics',{topic_name:obj.innerHTML},function(data,status)	{
+					console.log("Status",status);
+				});
+			}
+		</script>
+		<script>
+			function toggleTopic(visibility)	{
+				var feed;
+				$.post('/home/edit',{text:visibility.innerHTML},function(data,status)	{
+					console.log("Data is",data);
+					if(visibility.innerHTML=="Edit")	{
+						feed=document.getElementById("feed-filter");
+						var div = document.createElement("div");
+						div.setAttribute("id","topics");
+						feed.appendChild(div);
+						visibility.innerHTML="Done";
+						console.log(data);
+						var a;
+						for(var i=0;i<data.length;i++)	{
+							a=document.createElement("a");
+							a.setAttribute("onclick","addTopic(this)");
+							var textnode = document.createTextNode(data[i].topicname);
+							a.appendChild(textnode);
+							a.setAttribute("class","topic_names");
+							div.appendChild(a);
+						}
+					}
+					else	{
+						var div = document.getElementById("topics");
+						feed=document.getElementById("feed-filter");
+						feed.removeChild(div);
+						visibility.innerHTML = "Edit";
+					}
+					
+				});
+			}
+		</script>
+	</head>
+	<script src="menu_script.js"></script>
+	<body onclick="hideAll();">
+			<nav>
+				<a href="/home" id="first">
+					<img src="home.png" class="icons"></img><!--Home-->
+				</a>
+				<a href="/home" >
+					<img src="read.png" class="icons"></img><!--<p>Read</p>-->
+				</a>
+				<a href="/answer">
+					<img src="answer.png" class="icons"></img><!--<p>Answer</p>-->
+				</a>
+				<a href="javascript:displayNotification();">
+					<img src="notification.png" class="icons"></img>
+				</a>
+				<div id="notification">
+					<header>
+							<a href="/notifications"><p>See all notifications</p></a>
+							
+					</header>
+					<article>
+					</article>
+				</div>
+				<a href="javascript:displayProfile();">
+					<img src="persom.png" class="icons"></img>
+				</a>
+				<div id="profile">
+				
+					<a>
+					Profile
+					</a>
+					<a>
+					Blogs
+					</a>
+					<a>
+					Messages
+					</a>
+					<a>
+					Your Content
+					</a>
+					<a>
+					Stats
+					</a>
+					<a>
+					Settings
+					</a>
+					<a href="/logout">
+					Log Out
+					</a>
+				</div>
+				<div id="search">
+				<input type="text" name="search" placeholder="Search Quora"></input>
+				</div>
+			
+			</nav>
+			
+			<div id="search">
+				<input type="text" name="search" placeholder="Search Quora"></input>
+			</div>
+			<aside>
+				<header id="feed-filter">
+					<h3>Feeds</h3>
+					<button onclick = "toggleTopic(this)">Edit</button>
+					
+					<!--<div id="topics" style="visibility:hidden">
+						<% for(var i=0;i<topics.length;i++)	{%>
+							<a onclick="addTopic(this)"><%= topics[i].topic %></a>
+						<%}%>
+					</div>-->
+				</header>
+				<% for(var i=0;i<topics.length;i++)	{%>
+					<a href="/home/"+ "<%=topics[i]%>">
+						<%=topics[i]%>
+					</a>
+				<%}%>
+			</aside>
+			<section id="posts">
+				<article id="question">
+					<header>
+						<h3>Samin, What are you wondering about?</h3>
+					<header>
+					<article>
+					</article>
+				</article>
+				
+				<% for(var i=0;i<questions.length;i++)	{%>
+					<article class="answers">
+						<header>
+							<p>Answer - <%= questions[i].topic %></p>
+							<h3>
+								<%= questions[i].question %>
+							</h3>
+						</header>
+						<article class="content">
+							<p>	
+								<%= answers[i].answer %>
+							</p>
+						</article>
+					</article>
+				<% } %>
+				
+			</section>
+		
+	</body>
+</html>

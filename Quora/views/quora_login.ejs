@@ -1,0 +1,35 @@
+<! DOCTYPE HTML>
+<html>
+	<head>
+		<title>
+			Quora Login
+		</title>
+		<style>
+			div	{
+				position:relative;
+				margin:auto;
+				border:1px solid black;
+				min-height:200px;
+				width:300px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div>
+			<form method="post" action = "/home">
+				Email:<br/><input name = "user[email]" type="email">
+				</input><br/>
+				Password:<br/><input name = "user[password]" type="password">
+				</input>
+				<br/>
+				<input type="submit" value="Log In"></input>
+			</form>
+			<p>Don't have an account? Sign Up!</p>
+			<form method="get" action = "/signup">
+				<input type="submit" value="Sign Up"></input>
+			</form>
+		</div>
+	</body>
+	
+</html>

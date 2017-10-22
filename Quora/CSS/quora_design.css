@@ -1,0 +1,46 @@
+section#posts	{
+	position:absolute;
+	top:30%;
+	left:25%;
+	width:58%;
+	border:0px solid black;
+	min-height:100%;
+	z-index:-1;
+	background-color:#F7F9F9;
+	padding:1%;
+}
+
+article	{
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:1%;
+	height:30;
+	background-color:white;
+	border-radius:5%;
+	padding:1%;
+}
+	
+article#question	{
+	height:10%;
+}	
+
+aside	{
+	border:1px solid black;
+	position:fixed;
+	top:30%;
+	left:5%;
+	width:15%;
+	right:5%;
+	height:20%;
+}
+
+article.content	{
+	margin:initial;
+	height:51%;
+	width:99%;
+}
+
+div#topics	{
+	border:1px solid black;
+}
