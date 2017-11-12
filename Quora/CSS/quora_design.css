@@ -1,13 +1,16 @@
-section#posts	{
+body	{
+	background-color:#F7F9F9;
+}
+section#posts, #questions	{
 	position:absolute;
 	top:30%;
 	left:25%;
 	width:58%;
-	border:0px solid black;
 	min-height:100%;
 	z-index:-1;
 	background-color:#F7F9F9;
 	padding:1%;
+	border:0px dashed black;
 }
 
 article	{
@@ -19,28 +22,70 @@ article	{
 	background-color:white;
 	border-radius:5%;
 	padding:1%;
+	font-family:Helvetica;
+	
+}
+
+article.answers header	{
+	text-align:center;
 }
 	
 article#question	{
 	height:10%;
+	font-family:Helvetica;
+	padding:1%;
 }	
 
 aside	{
-	border:1px solid black;
+	border:1px solid #F7F9F9;
 	position:fixed;
 	top:30%;
 	left:5%;
 	width:15%;
 	right:5%;
-	height:20%;
+	min-height:20%;
+	padding:1%;
+	border-radius:3%;
+	box-shadow:5px 5px 30px #7DCEA0;
 }
 
 article.content	{
 	margin:initial;
 	height:51%;
 	width:99%;
+	box-shadow:0 0 0;
+	font-family:Helvetica;
+
 }
 
 div#topics	{
 	border:1px solid black;
+}
+
+ul	{
+	list-style-type:none;
+}
+
+
+button	{
+	float:right;
+	padding: 5px 10px 5px 10px;
+	border-style:none;
+}
+
+header#feed-filter h3	{
+	margin-left:1%;
+	display:inline;
+	color:#7DCEA0;
+	
+}
+
+a	{
+	text-decoration:none;
+	color:#7DCEA0;
+	
+}
+
+a:active	{
+	color:blue;
 }

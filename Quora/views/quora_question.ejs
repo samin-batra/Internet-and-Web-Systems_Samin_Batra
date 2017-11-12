@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Quora</title>
+		<link type="text/css" rel="stylesheet" href="quora_design.css"/>
+		<link type="text/css" rel="stylesheet" href="quora_nav.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="menu_script.js"></script>
+		<style>	
+			header	{
+				text-align:center;
+			}
+			
+		</style>
+		<script>
+			function submitAnswer(obj,id)	{
+				console.log("Inside submitAnswer function");
+				console.log(id);
+				id=parseInt(id);
+				console.log(obj);
+				var parent=obj.parentNode;
+				//parent=parent.parentNode;
+				//parent=parent.parentNode;
+				console.log(parent);
+				var elem=parent.querySelector("form");
+				console.log(elem);
+				var textarea=elem.querySelector("textarea");
+				var answer=textarea.value;
+				answer=answer.trim(" ");
+				$.post('/post_answer',{id:id,answer:answer},function(data,status)	{
+					console.log("Sending data to server..");
+					console.log(data);
+					//window.url="/answer";
+				});
+			}
+		</script>
+		<script>
+			function triggerInput(obj)	{
+				console.log(obj);
+				//console.log(this);
+				var parent=obj.parentNode;
+				console.log(parent);
+				var form=parent.querySelector("form");	
+				form.style.visibility="visible";
+				return;
+			}
+		</script>
+	</head>
+	<body>
+		<nav>
+				<a href="/home" id="first">
+					<img src="home.png" class="icons"></img><!--Home-->
+				</a>
+				<a href="/home" >
+					<img src="read.png" class="icons"></img><!--<p>Read</p>-->
+				</a>
+				<a href="/answer">
+					<img src="answer.png" class="icons"></img><!--<p>Answer</p>-->
+				</a>
+				<a href="javascript:displayNotification();">
+					<img src="notification.png" class="icons"></img>
+				</a>
+				<div id="notification">
+					<header>
+							<a href="/notifications"><p>See all notifications</p></a>
+							
+					</header>
+					<article>
+					</article>
+				</div>
+				<a href="javascript:displayProfile();">
+					<img src="persom.png" class="icons"></img>
+				</a>
+				<div id="profile">
+					<a>
+					Profile
+					</a>
+					<a>
+					Blogs
+					</a>
+					<a>
+					Messages
+					</a>
+					<a>
+					Your Content
+					</a>
+					<a>
+					Stats
+					</a>
+					<a>
+					Settings
+					</a>
+					<a href="/logout">
+					Log Out
+					</a>
+				</div>
+				
+			
+			</nav>
+			
+			<div id="search">
+				<input type="text" name="search" placeholder="Search Quora"></input>
+			</div>
+			<section id="questions">
+				<header id="intro">
+					<h3>Top questions for you!</h3>
+				</header>
+			
+				<% for(var i=0;i<questions.length;i++)	{%>
+					<article>
+						<header>
+							<h3>
+								<%=questions[i].question%>
+							</h3>
+						</header>
+						<form style="visibility:visible" method="post" action="/answer">
+							<textarea rows="3" cols="85" name="<%=questions[i].questionid%>">
+							
+							</textarea>
+							<input type="submit" value="Submit"></input>
+						</form>
+						
+						<!--<button onclick="submitAnswer(this,110)">Lol</button>-->
+						<button onclick="triggerInput(this)">Answer
+						</button>
+							
+					</article>
+				<%}%>
+			</section>
+	</body>
+</html>

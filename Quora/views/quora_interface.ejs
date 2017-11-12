@@ -1,28 +1,56 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Quora</title>
 		<link type="text/css" rel="stylesheet" href="quora_design.css"/>
 		<link type="text/css" rel="stylesheet" href="quora_nav.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+		<style>
+			li#locate	{
+				padding:2px;
+				border:0px dashed #7DCEA0;
+				
+			}
+			
+			li#locate img	{
+				height:17px;
+				width:14px;
+				margin-right:5px;
+			}
+			li	{
+				text-align:left;
+			}
+		</style>
 		<script>
 			function addTopic(obj)	{
-				
+				console.log("Inside the addTopic function");
 				console.log(obj.innerHTML);
 				var feed=document.getElementById("feed-filter");
 				feed=feed.parentNode;
 				console.log(feed);
-				var topics = feed.children;
-				for(var i=0;i<topics.length;i++)	{
-					console.log(topics[i].innerHTML);
-					if(obj.innerHTML==topics[i].innerHTML)	{
+				
+				var topics = feed.querySelectorAll("ul");
+				//console.log("Child nodes of feed are"+feed.childNodes.length);
+				console.log(topics[1]);
+				var lists=topics[1].querySelectorAll("li");
+				var lists_a;
+				for(var i=0;i<lists.length;i++)	{
+					console.log("Inside the loop");
+					console.log(lists[i].innerHTML);
+					lists_a=lists[i].querySelector("a");
+					console.log(lists_a.innerHTML);
+					var str=lists_a.innerHTML.trim(" ");
+					//console.log(str);
+					if(obj.innerHTML==str)	{
+						console.log("Topic already exists");
 						return;
 					}
 				}
 				var a=document.createElement("a");
 				var txt=document.createTextNode(obj.innerHTML);
 				a.appendChild(txt);
-				a.setAttribute("href","/home/"+obj.innerHTML);
+				a.setAttribute("href","/home?topic="+obj.innerHTML);
 				feed.appendChild(a);
 				$.post('/home/add_topics',{topic_name:obj.innerHTML},function(data,status)	{
 					console.log("Status",status);
@@ -42,14 +70,19 @@
 						visibility.innerHTML="Done";
 						console.log(data);
 						var a;
+						var ul=document.createElement("ul");
 						for(var i=0;i<data.length;i++)	{
+							var li=document.createElement("li");
 							a=document.createElement("a");
 							a.setAttribute("onclick","addTopic(this)");
 							var textnode = document.createTextNode(data[i].topicname);
 							a.appendChild(textnode);
 							a.setAttribute("class","topic_names");
-							div.appendChild(a);
+							li.appendChild(a);
+							ul.appendChild(li);
+							
 						}
+						div.appendChild(ul);
 					}
 					else	{
 						var div = document.getElementById("topics");
@@ -61,9 +94,39 @@
 				});
 			}
 		</script>
+		<script>
+			function getLocation()	{
+			
+				$.get("http://ipinfo.io",function(response)	{
+					//console.log(response.ip);
+					//city_location = response.city;
+					console.log(response.city);
+					var ul=document.getElementsByTagName("ul");
+					var a=document.createElement("a");
+					a.setAttribute("href","/home?location="+response.city);
+					var txt=document.createTextNode(response.city);
+					a.appendChild(txt);
+					
+					var li=document.createElement("li");
+					li.setAttribute("id","locate");
+					var img=document.createElement("img");
+					img.setAttribute("src","location_icon.png");
+					/*img.setAttribute("height","15px");
+					img.setAttribute("width","15px");
+					img.setAttribute("margin-right","5px");
+					*/
+					li.appendChild(img);
+					li.appendChild(a);
+					//li.appendChild(txt);
+					ul[0].appendChild(li);
+				},"jsonp");
+				
+			}
+			
+		</script>
 	</head>
 	<script src="menu_script.js"></script>
-	<body onclick="hideAll();">
+	<body onclick="hideAll();" onload="getLocation()">
 			<nav>
 				<a href="/home" id="first">
 					<img src="home.png" class="icons"></img><!--Home-->
@@ -89,7 +152,6 @@
 					<img src="persom.png" class="icons"></img>
 				</a>
 				<div id="profile">
-				
 					<a>
 					Profile
 					</a>
@@ -112,9 +174,7 @@
 					Log Out
 					</a>
 				</div>
-				<div id="search">
-				<input type="text" name="search" placeholder="Search Quora"></input>
-				</div>
+				
 			
 			</nav>
 			
@@ -125,23 +185,21 @@
 				<header id="feed-filter">
 					<h3>Feeds</h3>
 					<button onclick = "toggleTopic(this)">Edit</button>
-					
-					<!--<div id="topics" style="visibility:hidden">
-						<% for(var i=0;i<topics.length;i++)	{%>
-							<a onclick="addTopic(this)"><%= topics[i].topic %></a>
-						<%}%>
-					</div>-->
 				</header>
+				<ul>
 				<% for(var i=0;i<topics.length;i++)	{%>
-					<a href="/home/"+ "<%=topics[i]%>">
-						<%=topics[i]%>
-					</a>
+					<li>
+						<a href="/home?topic=<%=topics[i]%>">
+							<%=topics[i]%>
+						</a>
+					</li>	
 				<%}%>
+				</ul>
 			</aside>
 			<section id="posts">
 				<article id="question">
 					<header>
-						<h3>Samin, What are you wondering about?</h3>
+						<h3><%=name%>, What are you wondering about?</h3>
 					<header>
 					<article>
 					</article>

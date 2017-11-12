@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -27,15 +28,17 @@
 			}
 			
 		</style>
+		<script type="text/javascript" src="javascript/billing.js">
+		</script>
 	</head>
 	<body>
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">E-Commerce</a>
+					<a class="navbar-brand" href="#one">E-Commerce</a>
 				</div>
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="bootstrap_tut.html">Home</a></li>
+					<li class="active"><a href="#one">Home</a></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 							Categories
@@ -43,16 +46,16 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-								<a href="bootstrap_electronics.html">Electronics</a>
+								<a href="#electronics">Electronics</a>
 							</li>
 							<li>
-								<a href="bootstrap_books.html">Books</a>
+								<a href="#books">Books</a>
 							</li>
 							<li>
-								<a href="bootstrap_sports.html">Sports/Fitness</a>
+								<a href="#sports">Sports/Fitness</a>
 							</li>
 							<li>
-								<a href="#">Home Decor</a>
+								<a href="#decor">Home Decor</a>
 							</li>
 							<li>
 								<a href="#">Sports/Fitness</a>
@@ -61,34 +64,43 @@
 					</li>
 					<li><a href="#">Sign In</a></li>
 				</ul>
+				<button class="btn btn-primary pull-right" data-toggle="modal" data-target="#category_modal" onclick="displayCategoryPopover()">
+						Add New Category
+				</button>
+				
+				<button class="btn btn-primary pull-right" data-toggle="modal" data-target="#checkout_modal" onclick = "checkOut()">
+						Check Out
+				</button>
 			</div>
 		</nav>
-		<div class="container">
+		<div class="container" id="one">
+			
+		
 			<div class="row">
-				<a class="categories" href="bootstrap_electronics.html">
+				<a class="categories" href="#electronics">
 				<div class="col-md-12">
 					<h3 class="text-center" style="">Electronics</h3>
 						<div class="row">
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="controller.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/controller.jpg" alt=""></img>
 								</div>
 							</div>
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="playstation-4.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/playstation-4.jpg" alt=""></img>
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="jbl_bluetooth.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/jbl_bluetooth.jpg" alt=""></img>
 								</div>
 							</div>
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="ipad_pro.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/ipad_pro.jpg" alt=""></img>
 								</div>
 							</div>
 						</div>
@@ -96,60 +108,60 @@
 				</a>
 			</div>
 			<div class="row">
-				<a class="categories" href="bootstrap_books.html">
+				<a class="categories" href="#books">
 					<div class="col-md-6">
 						<h3 class="text-center">Books</h3>
 						<div class="row">
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="books_1.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/books_1.jpg" alt=""></img>
 								</div>
 							</div>
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="book_2.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/book_2.jpg" alt=""></img>
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="books_3.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/books_3.jpg" alt=""></img>
 								</div>
 							</div>
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="books_4.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/books_4.jpg" alt=""></img>
 								</div>
 							</div>
 						</div>
 					</div>
 				</a>
 				
-				<a class="categories" href="bootstrap_sports.html">
+				<a class="categories" href="#sports">
 					<div class="col-md-6">
 						<h3 class="text-center">Sports/Fitness</h3>
 						<div class="row">
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="sports_1.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/sports_1.jpg" alt=""></img>
 								</div>
 							</div>
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="sports_2.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/sports_2.jpg" alt=""></img>
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="sports_3.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/sports_3.jpg" alt=""></img>
 								</div>
 							</div>
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="sports_4.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/sports_4.jpg" alt=""></img>
 								</div>
 							</div>
 						</div>
@@ -157,64 +169,583 @@
 				</a>
 			</div>
 			<div class="row">
-				<a class="categories" href="bootstrap_decor.html">
+				<a class="categories" href="#decor">
 					<div class="col-md-6">
 						<h3 class="text-center">Home Decor</h3>
 						<div class="row">
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="decor_1.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/decor_1.jpg" alt=""></img>
 								</div>
 							</div>
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="decor_2.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/decor_2.jpg" alt=""></img>
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="decor_3.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/decor_3.jpg" alt=""></img>
 								</div>
 							</div>
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="decor_4.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/decor_4.jpg" alt=""></img>
 								</div>
 							</div>
 						</div>
 					</div>
 				</a>
-				<a class="categories" href="bootstrap_decor.html">
+				<a class="categories" href="#decor">
 					<div class="col-md-6">
 						<h3 class="text-center">Home Decor</h3>
 						<div class="row">
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="decor_1.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/decor_1.jpg" alt=""></img>
 								</div>
 							</div>
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="decor_2.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/decor_2.jpg" alt=""></img>
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="decor_3.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/decor_3.jpg" alt=""></img>
 								</div>
 							</div>
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
-									<img class="img-thumbnail image_mod" src="decor_4.jpg" alt=""></img>
+									<img class="img-thumbnail image_mod" src="images/decor_4.jpg" alt=""></img>
 								</div>
 							</div>
 						</div>
 					</div>
 				</a>
+			</div>
+		</div>
+		<div class="container" id="electronics" href="#electronics">
+			
+			<h3 class="text-center">
+				Electronics
+			</h3>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="#" title="Price" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="">
+							<img class="img-responsive" src="images/controller.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Logitech Remote Controller for PC
+									
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+					
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices"  href="" title="Price" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="">
+							<img class="img-responsive" src="images/playstation-4.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Play Station 4
+								
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="" data-trigger="hover">
+							<img class="img-responsive" src="images/jbl_headphones.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									JBL Headphones
+									
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="" data-trigger="hover">
+							<img class="img-responsive" src="images/lenovo_mouse.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Lenovo Mouse
+									
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="" data-trigger="hover">
+							<img class="img-responsive" src="images/jbl_bluetooth.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									JBL Wireless Bluetooth Speaker
+									
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+					
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="" data-trigger="hover">
+							<img class="img-responsive" src="images/ipad_pro.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Apple iPad Pro
+									
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+								Add to Cart
+						</button>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+		
+		
+		<div class="container" id="books">
+			
+			<h3 class="text-center">
+				Books
+			</h3>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="#" title="Sample popover" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="lol">
+							<img class="img-responsive" src="images/books_1.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Kane and Abel by Jeffrey Archer
+								</p>
+							</div>
+								
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="lol">
+							<img class="img-responsive" src="images/book_2.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Kite Runner by Khaled Husseini, Kindle Edition
+								</p>
+							</div>
+							
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-content="lol" data-trigger="hover">
+						
+							<img class="img-responsive" src="images/books_3.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Elon Musk by Ashlee Vance
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample popover" data-toggle="popover" data-placement="right" data-content="lol" data-trigger="hover">
+							<img class="img-responsive" src="images/books_4.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Lenovo Mouse
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+						
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample popover" data-toggle="popover" data-placement="right" data-content="lol" data-trigger="hover">
+						
+							<img class="img-responsive" src="images/jbl_bluetooth.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									JBL Wireless Bluetooth Speaker
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+					
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-content="lol" data-trigger="hover">
+							<img class="img-responsive" src="images/ipad_pro.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Apple iPad Pro
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container" id="decor">
+			
+			<h3 class="text-center">
+				Home Decor
+			</h3>
+			
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="#" title="Sample popover" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Lol">
+					
+							<img class="img-responsive" src="images/decor_1.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+										Abstract Flower Wall Sticker
+								</p>
+							</div>
+						</a>
+					</div>
+					
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Lol">
+						
+							<img class="img-responsive" src="images/decor_2.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Car Art
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+					
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						
+							<img class="img-responsive" src="images/decor_3.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Wall Frames
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+									
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						
+							<img class="img-responsive" src="images/decor_4.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Abstract Wall Painting
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+						
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						
+							<img class="img-responsive" src="images/decor_5.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									F1 Car Scale Model
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+					
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						
+							<img class="img-responsive" src="images/decor_6.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Wall Mirror
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="container" id="sports">
+			
+			<h3 class="text-center">
+				Sports
+			</h3>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="#" title="Sample popover" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Lol">
+						
+							<img class="img-responsive" src="images/sports_1.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Logitech Remote Controller for PC
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+					
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Lol">
+						
+							<img class="img-responsive" src="images/sports_2.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Play Station 4
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+					
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						
+							<img class="img-responsive" src="images/sports_3.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									JBL Headphones
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+									
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						
+							<img class="img-responsive" src="images/lenovo_mouse.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Lenovo Mouse
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+						
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						
+							<img class="img-responsive" src="images/sports_4.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									JBL Wireless Bluetooth Speaker
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+					
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						
+							<img class="img-responsive" src="images/ipad_pro.jpg">
+							</img>
+							<div class="caption">
+								<p class="text-center">
+									Apple iPad Pro
+								</p>
+							</div>
+						</a>
+						<button class="btn" onclick="addToCart(this)">
+										Add to Cart
+						</button>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+		<div id="category_modal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4>Add New Category</h4>
+					</div>
+					<div class="modal-body">
+						<form id="add_category">
+							<div class="form-group">
+								<label for="ctg">Category:</label>
+								<input type="text" id="ctg" class="form-control"></input>
+							</div>
+							<div class="form-group">
+								<label for="no_of_items">Number of Items:</label>
+								<select id="no_of_items" class="form-control" onblur="showInputs(this)">
+									<option>1
+									</option>
+									<option>2
+									</option>
+									<option>3
+									</option>
+									<option>4
+									</option>
+									<option>5
+									</option>
+									<option>6
+									</option>
+									<option>7
+									</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for=""></label>
+								
+							</div>
+							
+						</form>
+						<button type="submit" class="btn btn-default" onclick="addCategory()" data-dismiss="modal">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="checkout_modal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4>Check Out List</h4>
+					</div>
+					<div class="modal-body">
+						
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>

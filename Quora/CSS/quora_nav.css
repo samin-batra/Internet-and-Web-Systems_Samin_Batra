@@ -9,6 +9,10 @@ nav	{
 	padding:1%;
 	top:0px;
 	background-color:#F7F9F9;
+	border-bottom:1px solid #7DCEA0;
+	box-shadow:0px 6px 10px #7DCEA0;
+	border-radius:0 0 55% 55%;
+	opacity: 0.65;
 }
 
 nav a	{
@@ -24,6 +28,10 @@ nav a	{
 	*/
 	background-color:#7DCEA0;
 	box-shadow:5px 5px 40px #F7F9F9;
+}
+ 
+nav:hover	{
+	opacity:1.0;
 }
 
 img.icons	{
@@ -85,18 +93,18 @@ div#search	{
 	width:35%;
 	top:0%;
 	left:35.7%;
-	border:1px solid black;
+	border:1px solid #E6E6E6;
 	border-bottom-left-radius:40%;
 	border-bottom-right-radius:40%;
-	background-color:#17202A;
-	box-shadow:5px 5px 5px 4px #17202A;
+	background-color:#E6E6E6;
+	box-shadow:5px 5px 4px #7DCEA0;
 }
 
 input[type=text]	{
 	position:absolute;
 	width:250px;
 	left:115px;
-	top:5px;
+	top:0px;
 	height:65%;
 	-webkit-transition: left, width 0.6s ease-in-out;
 	transition: left, width;
