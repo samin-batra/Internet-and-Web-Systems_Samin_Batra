@@ -277,8 +277,9 @@ function addCategory()	{
 		var div_caption = document.createElement("div");
 		div_caption.setAttribute("class","caption");
 		var p = document.createElement("p");
-		var price = document.getElementById("item_"+(i+1)).value;
-		p.innerHTML = price;
+		var item_name = document.getElementById("item_"+(i+1)).value; 
+		var price = 100;
+		p.innerHTML = item_name;
 		div_caption.appendChild(p);
 		a_prices.appendChild(img_category);
 		a_prices.appendChild(div_caption);

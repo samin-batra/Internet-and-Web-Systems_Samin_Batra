@@ -24,9 +24,27 @@
 			}
 			a.categories:hover img.image_mod	{
 				filter:opacity(100%);
+			}
+			@media only screen and (min-width:768px)	{
+				.is-table-row	{
+					display:table-row;
+				}
 				
+				.is-table-row [class*="col-"]	{
+					float:left;
+					display:table-cell;
+					vertical-align:top;
+				}
 			}
 			
+			/*.row-eq-height	{
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+			}*/
+		
+								
 		</style>
 		<script type="text/javascript" src="javascript/billing.js">
 		</script>
@@ -80,7 +98,7 @@
 				<a class="categories" href="#electronics">
 				<div class="col-md-12">
 					<h3 class="text-center" style="">Electronics</h3>
-						<div class="row">
+						<div class="row ">
 							<div class="col-md-6 image_class">
 								<div class="thumbnail image_class">
 									<img class="img-thumbnail image_mod" src="images/controller.jpg" alt=""></img>
@@ -234,7 +252,7 @@
 			<h3 class="text-center">
 				Electronics
 			</h3>
-			<div class="row">
+			<div class="row is-table-row">
 				<div class="col-md-4">
 					<div class="thumbnail">
 						<a class="prices" href="#" title="Price" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="">
@@ -243,7 +261,6 @@
 							<div class="caption">
 								<p class="text-center">
 									Logitech Remote Controller for PC
-									
 								</p>
 							</div>
 						</a>
@@ -288,7 +305,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row is-table-row">
 				<div class="col-md-4">
 					<div class="thumbnail">
 						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="" data-trigger="hover">
@@ -352,10 +369,10 @@
 			<h3 class="text-center">
 				Books
 			</h3>
-			<div class="row">
+			<div class="row is-table-row">
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="#" title="Sample popover" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="lol">
+						<a class="prices" href="#" title="Price" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="lol">
 							<img class="img-responsive" src="images/books_1.jpg">
 							</img>
 							<div class="caption">
@@ -372,7 +389,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="lol">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="lol">
 							<img class="img-responsive" src="images/book_2.jpg">
 							</img>
 							<div class="caption">
@@ -389,7 +406,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-content="lol" data-trigger="hover">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="lol" data-trigger="hover">
 						
 							<img class="img-responsive" src="images/books_3.jpg">
 							</img>
@@ -405,15 +422,15 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row is-table-row">
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample popover" data-toggle="popover" data-placement="right" data-content="lol" data-trigger="hover">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="lol" data-trigger="hover">
 							<img class="img-responsive" src="images/books_4.jpg">
 							</img>
 							<div class="caption">
 								<p class="text-center">
-									Lenovo Mouse
+									The Boy Who Loved by Durjoy Datta
 								</p>
 							</div>
 						</a>
@@ -425,13 +442,13 @@
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample popover" data-toggle="popover" data-placement="right" data-content="lol" data-trigger="hover">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="lol" data-trigger="hover">
 						
-							<img class="img-responsive" src="images/jbl_bluetooth.jpg">
+							<img class="img-responsive" src="images/books_5.jpg">
 							</img>
 							<div class="caption">
 								<p class="text-center">
-									JBL Wireless Bluetooth Speaker
+									Cosmos by Carl Sagan
 								</p>
 							</div>
 						</a>
@@ -443,12 +460,12 @@
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-content="lol" data-trigger="hover">
-							<img class="img-responsive" src="images/ipad_pro.jpg">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="lol" data-trigger="hover">
+							<img class="img-responsive" src="images/books_6.jpg">
 							</img>
 							<div class="caption">
 								<p class="text-center">
-									Apple iPad Pro
+									Pale Blue Dot by Carl Sagan
 								</p>
 							</div>
 						</a>
@@ -465,10 +482,10 @@
 				Home Decor
 			</h3>
 			
-			<div class="row">
+			<div class="row is-table-row">
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="#" title="Sample popover" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Lol">
+						<a class="prices" href="#" title="Price" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Lol">
 					
 							<img class="img-responsive" src="images/decor_1.jpg">
 							</img>
@@ -483,7 +500,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Lol">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Lol">
 						
 							<img class="img-responsive" src="images/decor_2.jpg">
 							</img>
@@ -501,7 +518,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
 						
 							<img class="img-responsive" src="images/decor_3.jpg">
 							</img>
@@ -521,7 +538,7 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
 						
 							<img class="img-responsive" src="images/decor_4.jpg">
 							</img>
@@ -539,7 +556,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
 						
 							<img class="img-responsive" src="images/decor_5.jpg">
 							</img>
@@ -557,7 +574,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
 						
 							<img class="img-responsive" src="images/decor_6.jpg">
 							</img>
@@ -580,16 +597,16 @@
 			<h3 class="text-center">
 				Sports
 			</h3>
-			<div class="row">
+			<div class="row is-table-row">
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="#" title="Sample popover" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Lol">
+						<a class="prices" href="#" title="Price" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Lol">
 						
 							<img class="img-responsive" src="images/sports_1.jpg">
 							</img>
 							<div class="caption">
 								<p class="text-center">
-									Logitech Remote Controller for PC
+								Bicycle
 								</p>
 							</div>
 						</a>
@@ -601,13 +618,13 @@
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Lol">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Lol">
 						
 							<img class="img-responsive" src="images/sports_2.jpg">
 							</img>
 							<div class="caption">
 								<p class="text-center">
-									Play Station 4
+									Dumb Bells
 								</p>
 							</div>
 						</a>
@@ -619,13 +636,13 @@
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
 						
 							<img class="img-responsive" src="images/sports_3.jpg">
 							</img>
 							<div class="caption">
 								<p class="text-center">
-									JBL Headphones
+									Cricket Bat
 								</p>
 							</div>
 						</a>
@@ -636,16 +653,16 @@
 									
 				</div>
 			</div>
-			<div class="row">
+			<div class="row is-table-row">
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
 						
-							<img class="img-responsive" src="images/lenovo_mouse.jpg">
+							<img class="img-responsive" src="images/sports_5.jpeg">
 							</img>
 							<div class="caption">
 								<p class="text-center">
-									Lenovo Mouse
+									Tennis Ball
 								</p>
 							</div>
 						</a>
@@ -657,13 +674,13 @@
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
 						
 							<img class="img-responsive" src="images/sports_4.jpg">
 							</img>
 							<div class="caption">
 								<p class="text-center">
-									JBL Wireless Bluetooth Speaker
+									Skipping Rope
 								</p>
 							</div>
 						</a>
@@ -675,7 +692,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<a class="prices" href="" title="Sample Popover" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
+						<a class="prices" href="" title="Price" data-toggle="popover" data-placement="right" data-content="Lol" data-trigger="hover">
 						
 							<img class="img-responsive" src="images/ipad_pro.jpg">
 							</img>
